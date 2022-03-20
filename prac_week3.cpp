@@ -36,14 +36,19 @@ public:
 
 int main()
 {
-    ApplePie p1;
-    printf("%s", p1.description().c_str());
+    int selection = 0;
+    printf("Enter a choice: \n1. ApplePie\n2. RaspberryPie\n3. ApricotPie\n");
+    scanf("%d", &selection);
 
-    RaspberryPie p2;
-    printf("%s", p2.description().c_str());
+    Pie* pieptr = NULL;
+    if (selection == 1)
+        pieptr = new ApplePie();
+    else if (selection == 2)
+        pieptr = new RaspberryPie();
+    else
+        pieptr = new ApricotPie();
 
-    ApricotPie p3;
-    printf("%s", p3.description().c_str());
+    printf("%s", pieptr->description().c_str());
 
     return 0;
 }
